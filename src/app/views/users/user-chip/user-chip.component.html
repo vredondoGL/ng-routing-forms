@@ -1,0 +1,17 @@
+<div class="user-chip">
+  <div class="avatar-wrapper">
+    <img [src]="user.avatar"/>
+  </div>
+  <div class="info-wrapper">
+    <div class="field">
+      <label>Name</label>: {{user.name}}
+    </div>
+    <div class="field">
+      <label>Username</label>: {{user.username}}
+    </div>
+    <div class="field">
+      <label>Country</label>: {{user.country}}
+    </div>
+  </div>
+  <button (click)="clickOnEdit.emit(user)">Edit</button>
+</div>

@@ -1,0 +1,34 @@
+.user-chip {
+  display: flex;
+  background: grey;
+  margin: 5px;
+  border: 2px solid #c5002a;
+  padding: 15px;
+  color: white;
+}
+
+.avatar-wrapper {
+  border-radius: 100%;
+  overflow: hidden;
+  width: 100px;
+  height: auto;
+}
+
+.avatar-wrapper img {
+  height: 100%;
+  width: 100%;
+}
+
+.info-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 25px;
+  justify-content: center;
+}
+
+button {
+  margin-left: auto;
+  height: 20px;
+  align-self: center;
+}

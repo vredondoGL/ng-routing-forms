@@ -1,0 +1,28 @@
+<div class="user-profile">
+  <img [src]="user.avatar"/>
+  <form [formGroup]="userForm">
+    <div class="form-input">
+      <label for="name">Name: </label>
+      <div *ngIf="userForm.get('name')?.touched  && userForm.get('name')?.errors as nameErrors" class="field-error">
+        <div *ngIf="(nameErrors.name || nameErrors.required)">Please enter valid a name</div>
+      </div>
+      <input type="text" class="form-control" placeholder="Name" formControlName="name">
+    </div>
+    <div class="form-input">
+      <label for="username">Username: </label>
+      <div *ngIf="userForm.get('username')?.touched  && userForm.get('username')?.errors as usernameErrors" class="field-error">
+        <div *ngIf="(usernameErrors.email || usernameErrors.required)">Please enter valid a username</div>
+        <div *ngIf="usernameErrors.usernameTaken">That username has already been taken</div>
+        <div *ngIf="usernameErrors.usernameTest">no fakes please</div>
+      </div>
+      <input type="text" class="form-control" placeholder="Username" formControlName="username" appUsernameTaken [userID]="user.id">
+    </div>
+    <div class="form-input">
+      <label for="username">Country: </label>
+      <div *ngIf="userForm.get('country')?.touched  && userForm.get('country')?.errors as countryErrors" class="field-error">
+        <div *ngIf="(countryErrors.name || countryErrors.required)">Please enter valid a country</div>
+      </div>
+      <input type="text" class="form-control" placeholder="Country" formControlName="country">
+    </div>
+  </form>
+</div>

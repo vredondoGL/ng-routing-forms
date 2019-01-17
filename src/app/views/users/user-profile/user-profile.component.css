@@ -1,0 +1,26 @@
+.user-profile {
+  width: 150px;
+  margin: 0 auto;
+}
+
+.user-profile form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-content: flex-end;
+}
+
+.form-input {
+  text-align: left;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.field-error {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  white-space: nowrap;
+}

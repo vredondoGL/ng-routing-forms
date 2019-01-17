@@ -1,0 +1,40 @@
+<form
+ #loginForm="ngForm"
+ novalidate
+ autocomplete="off"
+ (ngSubmit)="login(loginForm)">
+ <label>User Name:</label>
+ <input
+  required
+  id="userName"
+  type="text"
+  placeholder="User Name"
+  name="userName"
+  (ngModel)="userName"
+  #userNameRef="ngModel" />
+  <span class="error-message" *ngIf="(userNameRef.touched || userNameRef.dirty) && userNameRef.errors">
+    <span *ngIf="userNameRef.errors.required">
+      User name is required.
+    </span>
+  </span>
+  <label>Password:</label>
+ <input
+  required
+  id="password"
+  type="password"
+  placeholder="Password"
+  name="password"
+  (ngModel)="password"
+  #passwordRef="ngModel" />
+  <span class="error-message" *ngIf="(passwordRef.touched || passwordRef.dirty) && passwordRef.errors">
+    <span *ngIf="passwordRef.errors.required">
+      Password is required.
+    </span>
+  </span>
+  <button type="submit"
+    [class.disabled]="!loginForm.valid"
+    [disabled]="!loginForm.valid">
+    Log In
+  </button>
+  <pre>{{ loginForm.form.value | json}}</pre>
+</form>

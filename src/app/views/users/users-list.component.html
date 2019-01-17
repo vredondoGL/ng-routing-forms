@@ -1,0 +1,9 @@
+<h1>Users List</h1>
+<div class="users-list">
+  <app-user-chip
+    *ngFor="let user of users"
+    [user]="user"
+    (clickOnEdit)="goToEditUser($event)">
+  </app-user-chip>
+</div>
+
