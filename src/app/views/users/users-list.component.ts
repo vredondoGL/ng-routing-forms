@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { User } from './models';
 import { Router } from '@angular/router';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-users-list',
@@ -13,7 +12,7 @@ export class UsersListComponent implements OnInit {
 
   public users: User[] = [];
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -24,7 +23,7 @@ export class UsersListComponent implements OnInit {
   }
 
   private getUsers(): void {
-    this.http.get<User[]>('http://localhost:4000/users').subscribe((response: User[]) => {
+    this.userService.getUsers().subscribe((response: User[]) => {
       this.users = response;
     });
   }

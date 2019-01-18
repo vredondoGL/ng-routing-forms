@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+
 
 import { User } from './models';
 import { map, catchError } from 'rxjs/operators';
+import { UserService } from './user.service';
 
 @Injectable()
 export class UserResolver implements Resolve<User> {
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
@@ -17,7 +18,7 @@ export class UserResolver implements Resolve<User> {
   ): Observable<User> {
     const userID = route.params['id'];
     if (userID) {
-      return this.http.get<User>(`http://localhost:4000/users/${userID}`).pipe(
+      return this.userService.getUserByID(userID).pipe(
         map((user: User) => {
           return user;
         }),

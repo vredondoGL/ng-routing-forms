@@ -1,15 +1,13 @@
 import { AbstractControl, ValidatorFn, ValidationErrors, AsyncValidator, NG_ASYNC_VALIDATORS } from '@angular/forms';
 import { UserService } from '../user.service';
 
-import { User } from '../models';
 import { Directive, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-
 @Directive({
   selector: '[appUsernameTaken]',
-  providers: [{ provide: NG_ASYNC_VALIDATORS, useExisting: UsernameValidator, multi: true}]
+  providers: [{ provide: NG_ASYNC_VALIDATORS, useExisting: UsernameValidator, multi: true }]
 })
 export class UsernameValidator implements AsyncValidator {
 
